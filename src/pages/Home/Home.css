@@ -1,0 +1,882 @@
+/* =========================================================
+   HOME PAGE
+========================================================= */
+ 
+.home-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: clip;
+  isolation: isolate;
+}
+
+html[data-theme="light"] .home-page {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(124, 110, 255, 0.14), transparent 28%),
+    linear-gradient(180deg, #f7f9ff 0%, #edf3ff 100%);
+  color: #000000;
+}
+
+html[data-theme="light"] .floating-background::before {
+  background: rgba(124, 106, 245, 0.15);
+}
+
+html[data-theme="light"] .floating-background::after {
+  background: rgba(14, 165, 233, 0.12);
+}
+
+html[data-theme="light"] .home-label,
+html[data-theme="light"] .home-subtitle,
+html[data-theme="light"] .home-cta,
+html[data-theme="light"] .home-description,
+html[data-theme="light"] .animated-name {
+  color: var(--heading);
+}
+
+html[data-theme="dark"] .home-page .home-label,
+html[data-theme="dark"] .home-page .animated-name,
+html[data-theme="dark"] .home-page .home-subtitle,
+html[data-theme="dark"] .home-page .home-hero p {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .home-page .home-label {
+  opacity: 0.78;
+  text-shadow: 0 0 14px rgba(167, 139, 250, 0.2);
+}
+
+html[data-theme="dark"] .home-page .animated-name {
+  text-shadow:
+    0 0 12px rgba(176, 113, 255, 0.62),
+    0 0 24px rgba(147, 121, 255, 0.4),
+    0 0 44px rgba(120, 140, 255, 0.2);
+  -webkit-text-stroke-color: rgba(221, 216, 255, 0.3);
+}
+
+html[data-theme="dark"] .home-page .home-subtitle {
+  opacity: 0.82;
+  text-shadow: 0 0 14px rgba(167, 139, 250, 0.22);
+}
+
+.home-page::before {
+  content: "";
+  position: fixed;
+  width: 900px;
+  height: 550px;
+  left: 50%;
+  top: 43%;
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(47, 38, 120, 0.28) 0%,
+      rgba(26, 23, 78, 0.15) 35%,
+      transparent 72%
+    );
+  filter: blur(45px);
+  pointer-events: none;
+  z-index: 0;
+}
+ 
+ 
+/* =========================================================
+   ANIMATED BACKGROUND
+========================================================= */
+ 
+.floating-background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+ 
+ 
+/* =========================================================
+   BACKGROUND GLOWS
+========================================================= */
+ 
+.floating-background::before,
+.floating-background::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(130px);
+  opacity: 0.18;
+}
+ 
+ 
+.floating-background::before {
+  width: 650px;
+  height: 650px;
+  top: -450px;
+  left: 5%;
+  background: #171344;
+}
+ 
+ 
+.floating-background::after {
+  width: 600px;
+  height: 600px;
+  top: -420px;
+  right: 0;
+  background: #101044;
+}
+ 
+ 
+/* =========================================================
+   MOVING BALLS
+========================================================= */
+ 
+.floating-ball {
+  position: absolute;
+  left: var(--left);
+  bottom: -30px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(172, 146, 255, 0.98) 18%,
+      rgba(112, 72, 255, 0.85) 40%,
+      rgba(92, 61, 255, 0.35) 65%,
+      rgba(92, 61, 255, 0) 100%
+    );
+  box-shadow:
+    0 0 5px rgba(130, 100, 255, 0.95),
+    0 0 12px rgba(108, 75, 255, 0.75),
+    0 0 28px rgba(90, 55, 255, 0.35);
+  opacity: 0.85;
+  will-change: transform;
+  animation:
+    homeBallRise
+    var(--duration)
+    linear
+    infinite;
+  animation-delay: var(--delay);
+}
+ 
+ 
+/* =========================================================
+   LIGHT TRAIL
+========================================================= */
+ 
+.floating-ball::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 95px;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(105, 76, 255, 0.35),
+      rgba(91, 68, 255, 0.12),
+      transparent
+    );
+  opacity: 0.7;
+}
+ 
+ 
+/* =========================================================
+   BALL MOVEMENT
+========================================================= */
+ 
+@keyframes homeBallRise {
+ 
+  0% {
+    transform:
+      translate3d(0, 80px, 0)
+      scale(0.6);
+ 
+    opacity: 0;
+  }
+ 
+  10% {
+    opacity: 0.8;
+  }
+ 
+  50% {
+    transform:
+      translate3d(35px, -50vh, 0)
+      scale(1);
+  }
+ 
+  90% {
+    opacity: 0.8;
+  }
+ 
+  100% {
+    transform:
+      translate3d(-25px, -120vh, 0)
+      scale(0.6);
+ 
+    opacity: 0;
+  }
+}
+ 
+ 
+/* =========================================================
+   CONTENT ABOVE BACKGROUND
+========================================================= */
+ 
+.home-page > *:not(.floating-background) {
+  position: relative;
+  z-index: 1;
+}
+ 
+ 
+/* =========================================================
+   NAVBAR
+========================================================= */
+ 
+.home-page .navbar {
+  z-index: 1000;
+}
+
+.home-page .deferred-section {
+  scroll-margin-top: 90px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 600px) {
+  .home-page .deferred-section {
+    scroll-margin-top: 82px;
+  }
+}
+ 
+ 
+/* =========================================================
+   HERO
+========================================================= */
+ 
+.home-hero {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 140px 8% 100px;
+  position: relative;
+  z-index: 1;
+}
+ 
+ 
+/* =========================================================
+   DESKTOP HERO LAYOUT
+========================================================= */
+ 
+@media (min-width: 769px) {
+ 
+  .home-hero-content {
+    width: 46%;
+    
+  }
+ 
+ 
+  .home-page > section:not(.home-hero) {
+    width: 100%;
+  }
+ 
+ 
+  #about {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+ 
+ 
+  #work {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+ 
+ 
+  #skill {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+ 
+  #contact {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #experience {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .home-page > section:not(.home-hero) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+ 
+ 
+  .experience-page {
+    width: 100% !important;
+  }
+}
+ 
+ 
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+ 
+.home-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.home-hero-media {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  width: min(200vw, 760px);
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.home-hero-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 72vh;
+  object-fit: contain;
+  filter: drop-shadow(0 28px 46px rgba(0, 0, 0, 0.38));
+  user-select: none;
+}
+
+.home-hero-media-glow {
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(92, 76, 255, 0.22), transparent 68%);
+  filter: blur(34px);
+}
+ 
+ 
+/* =========================================================
+   HI I'M
+========================================================= */
+ 
+.home-label {
+  font-family: "DM Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 4px;
+  opacity: 0.6;
+  margin-bottom: 30px;
+  color:white;
+}
+ 
+ 
+/* =========================================================
+   SACHIN DEEP
+   LETTER-BY-LETTER
+========================================================= */
+ 
+.home-hero h1 {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: clamp(80px, 9vw, 220px);
+  line-height: 0.8;
+  letter-spacing: -10px;
+  font-weight: 800;
+  color: var(--heading);
+  text-shadow:
+    0 0 12px rgba(176, 113, 255, 0.50),
+    0 0 20px rgba(147, 121, 255, 0.32),
+    0 0 38px rgba(120, 140, 255, 0.14);
+  -webkit-text-stroke: 0.5px rgba(175, 175, 255, 0.20);
+  filter: brightness(1.08);
+}
+ 
+ 
+/* =========================================================
+   FIRST LETTER S
+   NEVER DISAPPEARS
+========================================================= */
+ 
+.fixed-letter {
+  display: inline-block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.animated-name .fixed-letter,
+.animated-name > .name-letter {
+  color: #ffffff;
+  background: none;
+  -webkit-text-fill-color: #ffffff;
+}
+ 
+ 
+/* =========================================================
+   OTHER LETTERS
+========================================================= */
+ 
+.name-letter {
+  display: inline-block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  white-space: pre;
+  margin-right: 0.03em;
+  font-weight: 900;
+  text-rendering: geometricPrecision;
+}
+ 
+ 
+/* =========================================================
+   DEEP SECOND LINE
+========================================================= */
+ 
+.deep-name-line {
+  display: inline-block;
+  filter: none;
+}
+
+.deep-name-line .name-letter {
+  color: #d9d0ff;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: #d9d0ff;
+  color: #d9d0ff;
+  filter: saturate(1.3) brightness(1.08);
+  animation: none;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+html[data-theme="light"] .deep-name-line {
+  filter: none;
+}
+
+html[data-theme="light"] .deep-name-line .name-letter {
+  background:
+    linear-gradient(
+      120deg,
+      #ffffff 0%,
+      #c7b9ff 26%,
+      #8d72ff 52%,
+      #5b4ae6 72%,
+      #eaf3ff 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: none;
+  filter: none;
+}
+ 
+ 
+/* =========================================================
+   TEXT COLOR MOVEMENT
+========================================================= */
+ 
+@keyframes sachinTextColor {
+ 
+  0% {
+    background-position: 0% 50%;
+  }
+ 
+  50% {
+    background-position: 100% 50%;
+  }
+ 
+  100% {
+    background-position: 0% 50%;
+  }
+}
+ 
+ 
+/* =========================================================
+   HERO BREAK
+   IMPORTANT:
+   DO NOT HIDE BR
+========================================================= */
+ 
+.home-hero h1 br {
+  display: block;
+}
+ 
+ 
+/* =========================================================
+   FULL STACK DEVELOPER
+========================================================= */
+ 
+.home-hero p {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  margin-top: 40px;
+  margin-bottom: 0;
+  padding-bottom: 13px;
+  font-family: "DM Mono", monospace;
+  font-size: 15px;
+  letter-spacing: 3px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+ 
+ 
+/* =========================================================
+   PROFESSIONAL NEON LINE
+========================================================= */
+ 
+.home-hero p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 50%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(109, 93, 252, 0.8) 12%,
+      #7d68ed 28%,
+      #a855f7 40%,
+      #ec4899 50%,
+      #6366f1 62%,
+      #4f8cff 76%,
+      rgba(0, 229, 255, 0.8) 88%,
+      transparent 100%
+    );
+ 
+  clip-path:
+    polygon(
+      0% 42%,
+      12% 40%,
+      25% 38%,
+      38% 32%,
+      46% 22%,
+      50% 8%,
+      54% 22%,
+      62% 32%,
+      75% 38%,
+      88% 40%,
+      100% 42%,
+      100% 58%,
+      88% 60%,
+      75% 62%,
+      62% 68%,
+      54% 78%,
+      50% 92%,
+      46% 78%,
+      38% 68%,
+      25% 62%,
+      12% 60%,
+      0% 58%
+    );
+ 
+  box-shadow:
+    0 0 12px rgba(168, 85, 247, 0.35),
+    0 0 20px rgba(236, 72, 153, 0.16),
+    0 0 30px rgba(79, 140, 255, 0.12);
+ 
+  pointer-events: none;
+}
+
+.home-subtitle{
+  font-family: "DM Mono", monospace;
+  font-size: 15px;
+  letter-spacing: 3px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  opacity: 0.7;
+  color: white;
+}
+ 
+ 
+/* =========================================================
+   SOFT CENTER GLOW
+========================================================= */
+ 
+.home-hero p::before {
+  content: "";
+  position: absolute;
+  left: 20%;
+  bottom: -3px;
+  width: 60%;
+  height: 8px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 160, 220, 0.42) 0%,
+      rgba(168, 133, 255, 0.22) 42%,
+      transparent 80%
+    );
+  filter: blur(5px);
+  pointer-events: none;
+}
+ 
+ 
+/* =========================================================
+   SECTION SCROLL OFFSET
+========================================================= */
+ 
+.home-page section {
+  scroll-margin-top: 112px;
+}
+ 
+ 
+/* =========================================================
+   MOBILE
+========================================================= */
+ 
+@media (max-width: 768px) {
+ 
+  .home-hero {
+    padding: 120px 20px 80px;
+    text-align: center;
+  }
+ 
+  .home-hero-content {
+    align-items: center;
+    width: 100%;
+  }
+
+  .home-hero-media {
+    display: none;
+  }
+ 
+ 
+  /* =======================================================
+     MOBILE NAME
+  ======================================================= */
+ 
+  .home-hero h1 {
+    font-size:
+      clamp(
+        65px,
+        18vw,
+        120px
+      );
+    letter-spacing: -6px;
+    background-size: 300% 100%;
+  }
+ 
+ 
+  /* =======================================================
+     MOBILE DEEP
+  ======================================================= */
+ 
+  .deep-name-line {
+    display: inline-block;
+  }
+ 
+ 
+  /* =======================================================
+     MOBILE FULL STACK
+  ======================================================= */
+ 
+  .home-hero p {
+    width: fit-content;
+    max-width: 90vw;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-top: 40px;
+    padding-bottom: 12px;
+  }
+ 
+ 
+  .home-hero p::after {
+    width: 100%;
+  }
+ 
+ 
+  .home-hero p::before {
+    left: 28%;
+    width: 44%;
+  }
+ 
+ 
+  /* =======================================================
+     MOBILE BALLS
+  ======================================================= */
+ 
+  .floating-ball {
+    opacity: 0.65;
+  }
+ 
+ 
+  .floating-ball::after {
+    height: 65px;
+  }
+ 
+ 
+  /* =======================================================
+     MOBILE SECTION OFFSET
+  ======================================================= */
+ 
+  .home-page section {
+    scroll-margin-top: 82px;
+  }
+}
+ 
+ 
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+ 
+@media (max-width: 480px) {
+ 
+  .home-hero {
+    padding: 110px 15px 70px;
+  }
+ 
+ 
+  /* =======================================================
+     SMALL MOBILE NAME
+  ======================================================= */
+ 
+  .home-hero h1 {
+    font-size:
+      clamp(
+        55px,
+        19vw,
+        100px
+      );
+ 
+    letter-spacing: -5px;
+ 
+    background-size: 300% 100%;
+  }
+ 
+ 
+  /* =======================================================
+     SMALL MOBILE FULL STACK
+  ======================================================= */
+ 
+  .home-hero p {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-top: 30px;
+    width: fit-content;
+    max-width: 95vw;
+    padding-bottom: 10px;
+  }
+ 
+ 
+  .home-hero p::after {
+    width: 100%;
+  }
+ 
+ 
+  .home-hero p::before {
+    left: 25%;
+    width: 50%;
+  }
+}
+ 
+ 
+/* =========================================================
+   SHORT SCREEN
+========================================================= */
+ 
+@media (max-height: 700px) {
+ 
+  .top-text {
+    top: 12%;
+  }
+ 
+ 
+  .profile-image-wrapper {
+    top: 29%;
+    width: 125px;
+    height: 125px;
+  }
+ 
+ 
+  .profile-image-wrapper::after {
+    inset: -12px;
+  }
+ 
+ 
+  .portfolio-content {
+    top: 70%;
+    gap: 24px;
+  }
+}
+ 
+ 
+/* =========================================================
+   VERY SHORT SCREEN
+========================================================= */
+ 
+@media (max-height: 600px) {
+ 
+  .top-text {
+    top: 9.5%;
+  }
+ 
+ 
+  .profile-image-wrapper {
+    top: 27%;
+    width: 105px;
+    height: 105px;
+  }
+ 
+ 
+  .profile-image-wrapper::after {
+    inset: -10px;
+  }
+ 
+ 
+  .portfolio-content {
+    top: 72%;
+    gap: 20px;
+  }
+}
+ 
+ 
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+ 
+@media (prefers-reduced-motion: reduce) {
+ 
+  .floating-ball {
+    animation: none;
+    opacity: 0.4;
+  }
+ 
+ 
+  .home-hero h1 {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}
+ 

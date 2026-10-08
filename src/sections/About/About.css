@@ -1,0 +1,1079 @@
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+.about-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 4%;
+  position: relative;
+  color: #f4f5ff;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.about-heading {
+  margin-bottom: 28px;
+}
+
+.about-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #aaa5d9;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+.about-eyebrow-line {
+  width: 35px;
+  height: 2px;
+  background: linear-gradient(90deg, #8b5cf6, #ff9e63);
+}
+
+.about-heading h1 {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  margin: 16px 0 10px;
+  letter-spacing: -2px;
+}
+
+.about-heading h1 span {
+  background: linear-gradient(90deg, #a78bfa, #ff9e8f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-heading p {
+  color: #929bb0;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* =========================================
+   MAIN GRID
+========================================= */
+
+.about-main-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.4fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* =========================================
+   LEFT PROFILE COLUMN
+========================================= */
+
+.about-profile-column {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  min-width: 0;
+}
+
+/* =========================================
+   LEFT PROFILE CARD
+========================================= */
+
+.about-profile-card {
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  height: 100%;
+  padding: 22px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    145deg,
+    rgba(22, 24, 49, 0.98),
+    rgba(5, 7, 20, 0.98)
+  );
+
+  border: 1px solid rgba(151, 130, 255, 0.25);
+  border-radius: 26px;
+
+  transform: perspective(1000px)
+    rotateX(var(--rotate-x, 0deg))
+    rotateY(var(--rotate-y, 0deg));
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+.about-profile-card:hover {
+  border-color: rgba(151, 130, 255, 0.6);
+  box-shadow: 0 15px 55px rgba(100, 70, 255, 0.12);
+}
+
+/* =========================================
+   PROFILE CARD GLOW
+========================================= */
+
+.profile-card-glow {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    circle,
+    rgba(115, 75, 255, 0.13),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================
+   PROFILE CARD TOP
+========================================= */
+
+.profile-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #a0a9c1;
+}
+
+.profile-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+
+  border: 1px solid rgba(80, 210, 150, 0.25);
+  border-radius: 30px;
+  background: rgba(40, 180, 120, 0.07);
+
+  color: #8de2b5;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.profile-status span {
+  width: 7px;
+  height: 7px;
+  background: #68e6a4;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(104, 230, 164, 0.5);
+}
+
+/* =========================================
+   PROFILE AVATAR
+========================================= */
+
+.profile-avatar-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 14px 0 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-avatar-ring {
+  width: 105px;
+  height: 105px;
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  box-shadow: none;
+}
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =========================================
+   PROFILE IDENTITY
+========================================= */
+
+.profile-identity {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-identity h2 {
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin: 0 0 7px;
+  color: #f5f6ff;
+}
+
+.profile-identity p {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: #b5a2ff;
+}
+
+.profile-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: #a1aabe;
+  font-size: 13px;
+}
+
+.profile-location span {
+  color: #ffad80;
+  font-size: 17px;
+}
+
+/* =========================================
+   PROFILE DIVIDER
+========================================= */
+
+.profile-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(160, 165, 210, 0.15);
+  margin: 14px 0;
+}
+
+/* =========================================
+   PROFILE META
+========================================= */
+
+.profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-meta-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 19px;
+  color: #b7a6ff;
+
+  background: rgba(130, 100, 255, 0.08);
+  border: 1px solid rgba(145, 120, 255, 0.25);
+  border-radius: 12px;
+}
+
+.profile-meta-row div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.profile-meta-row small {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #8792ac;
+}
+
+.profile-meta-row strong {
+  font-size: 12px;
+  font-weight: 600;
+  color: #d7dced;
+  line-height: 1.5;
+}
+
+/* =========================================
+   PROFILE FOOTER
+========================================= */
+
+.profile-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding-top: 15px;
+  margin-top: 18px;
+
+  border-top: 1px solid rgba(160, 165, 210, 0.15);
+
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #8e9bb5;
+
+  position: relative;
+  z-index: 1;
+}
+
+.profile-footer-dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #a78bfa;
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.7);
+}
+
+/* =========================================
+   RIGHT CONTENT
+========================================= */
+
+.about-right-content {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* =========================================
+   INTRODUCTION CARD
+========================================= */
+
+.about-intro-card {
+  width: 100%;
+  padding: 18px 20px 15px;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    140deg,
+    rgba(24, 23, 55, 0.98),
+    rgba(7, 9, 23, 0.98)
+  );
+
+  border: 1px solid rgba(145, 120, 255, 0.3);
+  border-radius: 22px;
+
+  transform: perspective(1000px)
+    rotateX(var(--rotate-x, 0deg))
+    rotateY(var(--rotate-y, 0deg));
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.3s ease;
+}
+
+.about-intro-card:hover {
+  border-color: rgba(145, 120, 255, 0.65);
+}
+
+/* =========================================
+   INTRO TOP
+========================================= */
+
+.about-intro-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.about-intro-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #b8a8ff;
+}
+
+.about-intro-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a78bfa;
+  box-shadow: 0 0 15px rgba(167, 139, 250, 0.7);
+}
+
+.about-intro-number {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #6e7893;
+}
+
+/* =========================================
+   INTRO HEADING
+========================================= */
+
+.about-intro-card h2 {
+  font-size: clamp(25px, 2.2vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  font-weight: 800;
+  margin: 0 0 10px;
+  color: #f4f5ff;
+}
+
+.about-intro-card h2 span {
+  background: linear-gradient(90deg, #a78bfa, #ffab8c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================
+   INTRO DESCRIPTION
+========================================= */
+
+.about-intro-card > p {
+  font-size: 12px;
+  line-height: 1.55;
+  color: #a5afc4;
+  margin: 0;
+}
+
+/* =========================================
+   INTRO BOTTOM
+========================================= */
+
+.about-intro-bottom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 12px;
+  padding-top: 10px;
+
+  border-top: 1px solid rgba(160, 165, 210, 0.15);
+}
+
+.about-intro-line {
+  width: 35px;
+  height: 3px;
+  flex-shrink: 0;
+
+  background: linear-gradient(90deg, #a78bfa, #ff9e8f);
+  border-radius: 5px;
+}
+
+.about-intro-bottom > span {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #a1abc1;
+}
+
+.about-intro-bottom b {
+  color: #a78bfa;
+  margin: 0 5px;
+}
+
+/* =========================================
+   SERVICES GRID
+========================================= */
+
+.about-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* =========================================
+   SERVICE CARDS
+========================================= */
+
+.about-service-card {
+  min-width: 0;
+  min-height: 0;
+
+  padding: 14px 15px 12px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    145deg,
+    rgba(17, 19, 39, 0.98),
+    rgba(6, 8, 21, 0.98)
+  );
+
+  border: 1px solid rgba(145, 120, 255, 0.2);
+  border-radius: 17px;
+
+  transform: perspective(1000px)
+    rotateX(var(--rotate-x, 0deg))
+    rotateY(var(--rotate-y, 0deg));
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.about-service-card:hover {
+  border-color: rgba(145, 120, 255, 0.65);
+  box-shadow: 0 12px 35px rgba(100, 70, 255, 0.1);
+}
+
+/* =========================================
+   SERVICE CARD COLORS
+========================================= */
+
+.about-service-card.purple {
+  --card-accent: #a78bfa;
+}
+
+.about-service-card.blue {
+  --card-accent: #72a7ff;
+}
+
+.about-service-card.orange {
+  --card-accent: #ffad80;
+}
+
+.about-service-card.pink {
+  --card-accent: #f59bd8;
+}
+
+/* =========================================
+   SERVICE CARD TOP
+========================================= */
+
+.service-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 9px;
+}
+
+/* =========================================
+   SERVICE ICON
+========================================= */
+
+.service-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--card-accent);
+
+  background: rgba(130, 100, 255, 0.09);
+  border: 1px solid rgba(145, 120, 255, 0.25);
+  border-radius: 10px;
+}
+
+.service-number {
+  font-size: 10px;
+  color: #69738e;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   SERVICE CATEGORY
+========================================= */
+
+.service-category {
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: var(--card-accent);
+  margin-bottom: 6px;
+}
+
+/* =========================================
+   SERVICE TITLE
+========================================= */
+
+.about-service-card h4 {
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+  color: #f0f2ff;
+  margin: 0 0 6px;
+}
+
+/* =========================================
+   SERVICE DESCRIPTION
+========================================= */
+
+.about-service-card > p {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #9da8be;
+  margin: 0 0 10px;
+}
+
+/* =========================================
+   SERVICE SKILLS
+========================================= */
+
+.service-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: auto;
+}
+
+.service-skills span {
+  padding: 5px 7px;
+  border-radius: 8px;
+  font-size: 9px;
+  letter-spacing: 0.3px;
+  color: #b9c2d8;
+
+  background: rgba(130, 100, 255, 0.06);
+  border: 1px solid rgba(145, 120, 255, 0.2);
+}
+
+/* =========================================
+   SERVICE CARD BOTTOM
+========================================= */
+
+.service-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.service-bottom-line {
+  width: 30px;
+  height: 2px;
+  background: var(--card-accent);
+  opacity: 0.7;
+}
+
+.service-arrow {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+  color: var(--card-accent);
+
+  background: rgba(130, 100, 255, 0.08);
+  border: 1px solid rgba(145, 120, 255, 0.2);
+  border-radius: 50%;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) and (min-width: 769px) {
+  .about-page {
+    padding: 35px 3%;
+  }
+
+  .about-main-grid {
+    grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.25fr);
+    gap: 14px;
+  }
+
+  .about-profile-card {
+    padding: 18px 15px;
+  }
+
+  .profile-avatar-ring {
+    width: 90px;
+    height: 90px;
+  }
+
+  .profile-meta {
+    gap: 12px;
+  }
+
+  .profile-meta-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 17px;
+  }
+
+  .profile-meta-row {
+    gap: 9px;
+  }
+
+  .profile-meta-row strong {
+    font-size: 11px;
+  }
+
+  .about-intro-card {
+    padding: 16px;
+  }
+
+  .about-intro-card h2 {
+    font-size: 26px;
+  }
+
+  .about-services-grid {
+    gap: 10px;
+  }
+
+  .about-service-card {
+    padding: 12px;
+  }
+
+  .about-service-card h4 {
+    font-size: 14px;
+  }
+
+  .about-service-card > p {
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   MOBILE / TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 30px 18px;
+  }
+
+  .about-heading {
+    margin-bottom: 24px;
+  }
+
+  .about-main-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-profile-column {
+    justify-content: center;
+  }
+
+  .about-profile-card {
+    max-width: 560px;
+    min-height: 0;
+    height: auto;
+    padding: 25px 22px;
+  }
+
+  .profile-avatar-ring {
+    width: 110px;
+    height: 110px;
+  }
+
+  .profile-identity h2 {
+    font-size: 26px;
+  }
+
+  .profile-meta {
+    gap: 16px;
+  }
+
+  .profile-meta-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .profile-meta-row strong {
+    font-size: 13px;
+  }
+
+  .about-right-content {
+    gap: 15px;
+  }
+
+  .about-intro-card {
+    padding: 22px 20px;
+    border-radius: 22px;
+  }
+
+  .about-intro-card h2 {
+    font-size: clamp(27px, 5vw, 36px);
+  }
+
+  .about-intro-card > p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .about-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .about-service-card {
+    padding: 15px;
+    border-radius: 17px;
+  }
+
+  .service-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+  }
+
+  .about-service-card h4 {
+    font-size: 15px;
+  }
+
+  .about-service-card > p {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 25px 14px;
+  }
+
+  .about-heading h1 {
+    font-size: 34px;
+  }
+
+  .about-profile-card {
+    padding: 20px 16px;
+    border-radius: 22px;
+  }
+
+  .profile-card-top {
+    gap: 8px;
+  }
+
+  .profile-label {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .profile-status {
+    padding: 7px 9px;
+    font-size: 9px;
+  }
+
+  .profile-avatar-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-identity h2 {
+    font-size: 24px;
+  }
+
+  .profile-identity p {
+    font-size: 14px;
+  }
+
+  .profile-meta {
+    gap: 15px;
+  }
+
+  .profile-meta-row {
+    gap: 10px;
+  }
+
+  .profile-meta-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .profile-meta-row strong {
+    font-size: 12px;
+  }
+
+  .profile-meta-row small {
+    font-size: 9px;
+  }
+
+  .about-intro-card {
+    padding: 20px 16px;
+  }
+
+  .about-intro-top {
+    margin-bottom: 16px;
+  }
+
+  .about-intro-label,
+  .about-intro-number {
+    font-size: 9px;
+  }
+
+  .about-intro-card h2 {
+    font-size: 26px;
+  }
+
+  .about-intro-card > p {
+    font-size: 12px;
+  }
+
+  .about-intro-bottom > span {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .about-services-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .about-service-card {
+    padding: 16px;
+  }
+
+  .about-service-card h4 {
+    font-size: 17px;
+  }
+
+  .about-service-card > p {
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-profile-card,
+  .about-intro-card,
+  .about-service-card {
+    transition: none;
+  }
+}
+
+/* Transparent card surfaces */
+.about-profile-card,
+.about-tech-card,
+.about-intro-card,
+.about-service-card,
+.about-quote-card {
+  background: transparent !important;
+}
+
+/* =========================================
+   LIGHT THEME READABILITY
+========================================= */
+
+html[data-theme="light"] .about-page {
+  color: #111827;
+}
+
+html[data-theme="light"] .about-heading h1,
+html[data-theme="light"] .profile-identity h2,
+html[data-theme="light"] .about-intro-card h2,
+html[data-theme="light"] .about-service-card h4,
+html[data-theme="light"] .about-quote-content h3 {
+  color: #111827;
+}
+
+html[data-theme="light"] .about-heading p,
+html[data-theme="light"] .profile-meta-row small,
+html[data-theme="light"] .profile-card-footer,
+html[data-theme="light"] .about-intro-card > p,
+html[data-theme="light"] .about-service-card > p,
+html[data-theme="light"] .about-quote-card {
+  color: #475569;
+}
+
+html[data-theme="light"] .profile-label,
+html[data-theme="light"] .about-intro-number,
+html[data-theme="light"] .service-number {
+  color: #64748b;
+}
+
+html[data-theme="light"] .profile-identity p,
+html[data-theme="light"] .about-eyebrow,
+html[data-theme="light"] .about-intro-label,
+html[data-theme="light"] .service-category,
+html[data-theme="light"] .about-services-label {
+  color: #5b4de8;
+}
+
+html[data-theme="light"] .profile-location,
+html[data-theme="light"] .profile-meta-row strong,
+html[data-theme="light"] .about-intro-bottom > span,
+html[data-theme="light"] .service-skills span {
+  color: #334155;
+}
+
+html[data-theme="light"] .about-profile-card,
+html[data-theme="light"] .about-tech-card,
+html[data-theme="light"] .about-intro-card,
+html[data-theme="light"] .about-service-card,
+html[data-theme="light"] .about-quote-card {
+  border-color: rgba(15, 23, 42, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+html[data-theme="light"] .profile-divider,
+html[data-theme="light"] .profile-card-footer,
+html[data-theme="light"] .about-intro-bottom {
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme="light"] .service-skills span,
+html[data-theme="light"] .profile-meta-icon,
+html[data-theme="light"] .service-arrow {
+  background: rgba(91, 77, 232, 0.06);
+  border-color: rgba(91, 77, 232, 0.2);
+}

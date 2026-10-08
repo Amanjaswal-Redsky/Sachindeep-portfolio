@@ -1,0 +1,160 @@
+:root {
+  --bg: #070b16;
+  --bg-elevated: #101827;
+  --surface: rgba(15, 23, 42, 0.8);
+  --surface-strong: rgba(15, 23, 42, 0.96);
+  --panel: #111827;
+  --panel-soft: rgba(148, 163, 184, 0.08);
+  --text: #e5ecff;
+  --text-soft: rgba(229, 236, 255, 0.78);
+  --text-muted: rgba(191, 203, 229, 0.66);
+  --heading: #f8fbff;
+  --border: rgba(161, 140, 255, 0.22);
+  --shadow: rgba(3, 7, 18, 0.36);
+  --accent: #a78bfa;
+  --accent-strong: #7c6af5;
+  --accent-warm: #ffba7a;
+  --glow: rgba(124, 106, 245, 0.22);
+  --button-bg: rgba(15, 23, 42, 0.72);
+  --theme-button: rgba(250, 204, 21, 0.1);
+
+  font: 18px/145% "Inter", system-ui, sans-serif;
+  letter-spacing: 0.18px;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html[data-theme="light"] {
+  --bg: #f4f7fe;
+  --bg-elevated: #ffffff;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: rgba(248, 250, 255, 0.96);
+  --panel: #edf3ff;
+  --panel-soft: rgba(99, 102, 241, 0.05);
+  --text: #000000;
+  --text-soft: rgba(0, 0, 0, 0.78);
+  --text-muted: rgba(0, 0, 0, 0.58);
+  --heading: #000000;
+  --border: rgba(124, 106, 245, 0.18);
+  --shadow: rgba(15, 23, 42, 0.08);
+  --accent: #5b4de8;
+  --accent-strong: #4338ca;
+  --accent-warm: #d97706;
+  --glow: rgba(124, 106, 245, 0.12);
+  --button-bg: rgba(255, 255, 255, 0.8);
+  --theme-button: rgba(250, 204, 21, 0.12);
+}
+
+html[data-theme="dark"] {
+  --bg: #070b16;
+  --bg-elevated: #101827;
+  --surface: rgba(15, 23, 42, 0.8);
+  --surface-strong: rgba(15, 23, 42, 0.96);
+  --panel: #111827;
+  --panel-soft: rgba(148, 163, 184, 0.08);
+  --text: #ffffff;
+  --text-soft: rgba(255, 255, 255, 0.78);
+  --text-muted: rgba(255, 255, 255, 0.66);
+  --heading: #ffffff;
+  --border: rgba(161, 140, 255, 0.22);
+  --shadow: rgba(3, 7, 18, 0.36);
+  --accent: #a78bfa;
+  --accent-strong: #7c6af5;
+  --accent-warm: #ffba7a;
+  --glow: rgba(124, 106, 245, 0.22);
+  --button-bg: rgba(15, 23, 42, 0.72);
+  --theme-button: rgba(250, 204, 21, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  scroll-snap-type: y proximity;
+}
+
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 82px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+.app-loading-fallback {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}

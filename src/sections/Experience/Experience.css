@@ -1,0 +1,2314 @@
+/* =========================================================
+   EXPERIENCE PAGE
+========================================================= */
+
+.experience-page {
+  --navbar-height: 90px;
+  --sticky-top: calc(var(--navbar-height) + 15px);
+
+  --experience-card-height: clamp(
+    430px,
+    58vh,
+    560px
+  );
+
+  position: relative;
+  width: 100%;
+
+  color: #ffffff;
+
+  overflow: visible;
+}
+
+html[data-theme="light"] .experience-page {
+  color: #000000;
+}
+
+html[data-theme="light"] .experience-heading-label,
+html[data-theme="light"] .experience-heading-right span {
+  color: rgba(0, 0, 0, 0.62);
+}
+
+html[data-theme="light"] .experience-heading-right p {
+  color: rgba(0, 0, 0, 0.68);
+}
+
+html[data-theme="light"] .experience-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.94),
+      rgba(245, 247, 255, 0.88)
+    );
+  border-color: rgba(99, 102, 241, 0.2);
+  box-shadow: none;
+}
+
+html[data-theme="light"] .experience-card::before {
+  background:
+    radial-gradient(
+      circle at 78% 25%,
+      rgba(124, 108, 255, 0.1),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 20% 85%,
+      rgba(255, 158, 99, 0.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(91, 77, 232, 0.04),
+      transparent 28%,
+      transparent 70%,
+      rgba(124, 108, 255, 0.04)
+    );
+}
+
+html[data-theme="light"] .experience-top-meta,
+html[data-theme="light"] .experience-detail-footer {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .experience-meta-left,
+html[data-theme="light"] .experience-meta-right,
+html[data-theme="light"] .experience-period,
+html[data-theme="light"] .experience-stage-text,
+html[data-theme="light"] .experience-company,
+html[data-theme="light"] .experience-details p,
+html[data-theme="light"] .experience-detail-footer span,
+html[data-theme="light"] .experience-side-header,
+html[data-theme="light"] .experience-side-label,
+html[data-theme="light"] .experience-tech-row,
+html[data-theme="light"] .experience-side-footer,
+html[data-theme="light"] .experience-stat span {
+  color: rgba(0, 0, 0, 0.58);
+}
+
+html[data-theme="light"] .experience-meta-right,
+html[data-theme="light"] .experience-side-header {
+  color: rgba(0, 0, 0, 0.48);
+}
+
+html[data-theme="light"] .experience-details h3,
+html[data-theme="light"] .experience-side-panel h4,
+html[data-theme="light"] .experience-detail-footer strong,
+html[data-theme="light"] .experience-stat strong {
+  color: #000000;
+}
+
+html[data-theme="light"] .experience-icon-box,
+html[data-theme="light"] .experience-side-icon {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(91, 77, 232, 0.1),
+      rgba(217, 119, 6, 0.06)
+    );
+  border-color: rgba(91, 77, 232, 0.28);
+  color: #5b4de8;
+}
+
+html[data-theme="light"] .experience-skills span,
+html[data-theme="light"] .experience-stat {
+  background: rgba(91, 77, 232, 0.04);
+  border-color: rgba(91, 77, 232, 0.16);
+}
+
+html[data-theme="light"] .experience-skills span {
+  color: rgba(0, 0, 0, 0.72);
+}
+
+html[data-theme="light"] .experience-side-panel {
+  border-left-color: rgba(0, 0, 0, 0.1);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(91, 77, 232, 0.04),
+      transparent
+    );
+}
+
+html[data-theme="light"] .experience-side-line,
+html[data-theme="light"] .experience-tech-row {
+  border-color: rgba(0, 0, 0, 0.09);
+}
+
+html[data-theme="light"] .experience-tech-arrow {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+html[data-theme="light"] .experience-stat {
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+}
+
+html[data-theme="light"] .experience-card-grid {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+}
+
+html[data-theme="light"] .experience-watermark {
+  color: rgba(0, 0, 0, 0.035);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.experience-container {
+  position: relative;
+
+  width: min(
+    1400px,
+    calc(100% - 80px)
+  );
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(280px, 0.72fr)
+    minmax(0, 1.28fr);
+
+  align-items: start;
+
+  gap:
+    clamp(
+      36px,
+      6vw,
+      96px
+    );
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.experience-heading {
+  position: sticky;
+
+  top: var(--sticky-top);
+
+  display: block;
+
+  width: auto;
+
+  margin: 0;
+
+  padding:
+    34px 32px 38px;
+
+  border:
+    1px solid
+    rgba(
+      161,
+      140,
+      255,
+      0.22
+    );
+
+  border-radius: 26px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 17, 31, 0.96),
+      rgba(6, 8, 16, 0.92)
+    );
+
+  box-shadow:
+    0 24px 60px
+      rgba(
+        0,
+        0,
+        0,
+        0.24
+      ),
+    inset 0 1px 0
+      rgba(
+        255,
+        255,
+        255,
+        0.05
+      );
+
+  z-index: 100;
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   HEADER CAP
+========================================================= */
+
+.experience-heading-cap {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  width: fit-content;
+
+  min-height: 36px;
+
+  margin-bottom: 30px;
+
+  padding:
+    0 14px 0 7px;
+
+  border:
+    1px solid
+    rgba(
+      38,
+      211,
+      190,
+      0.28
+    );
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      38,
+      211,
+      190,
+      0.055
+    );
+
+  color:
+    rgba(
+      117,
+      239,
+      220,
+      0.85
+    );
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 9px;
+
+  letter-spacing: 1.8px;
+}
+
+.experience-heading-cap-icon {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  flex: 0 0 25px;
+
+  border:
+    1px solid
+    rgba(
+      38,
+      211,
+      190,
+      0.42
+    );
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      38,
+      211,
+      190,
+      0.1
+    );
+
+  color: #2dd4bf;
+}
+
+.experience-heading-cap-line {
+  width: 18px;
+
+  height: 1px;
+
+  margin-left: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        45,
+        212,
+        191,
+        0.8
+      ),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   HEADER LEFT
+========================================================= */
+
+.experience-heading-left {
+  max-width: none;
+
+  min-width: 0;
+
+  overflow: visible;
+}
+
+.experience-heading-label {
+  display: block;
+
+  margin-bottom: 14px;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 4px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.35
+    );
+}
+
+
+/* =========================================================
+   PROFESSIONAL EXPERIENCE TITLE
+========================================================= */
+
+.experience-heading h2 {
+  display: block;
+
+  width: 100%;
+
+  max-width: none;
+
+  margin: 0;
+
+  padding: 0;
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size:
+    clamp(
+      38px,
+      4vw,
+      68px
+    );
+
+  line-height: 0.96;
+
+  font-weight: 800;
+
+  letter-spacing:
+    clamp(
+      -4.5px,
+      -0.2vw,
+      -6px
+    );
+
+  white-space: normal;
+
+  overflow: visible;
+
+  word-break: normal;
+
+  overflow-wrap: normal;
+
+  background:
+    linear-gradient(
+      90deg,
+      #a18cff 0%,
+      #d9d1ff 48%,
+      #ffb27d 100%
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  color: transparent;
+}
+
+
+/* =========================================================
+   HEADER RIGHT
+========================================================= */
+
+.experience-heading-right {
+  width: auto;
+
+  margin-top: 34px;
+
+  padding-top: 24px;
+
+  padding-bottom: 0;
+
+  border-top:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+}
+
+.experience-heading-right span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 13px;
+
+  letter-spacing: 2px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+}
+
+.experience-heading-right p {
+  margin: 0;
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.45
+    );
+}
+
+
+/* =========================================================
+   EXPERIENCE STACK
+========================================================= */
+
+.experience-stack {
+  position: relative;
+
+  width: 100%;
+
+  height: auto;
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   EXPERIENCE STAGE
+========================================================= */
+
+.experience-stage {
+  position: relative;
+
+  top: auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+
+  width: 100%;
+
+  height: auto;
+
+  min-height: 0;
+
+  overflow: visible;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   CARD WRAPPER
+========================================================= */
+
+.experience-card-wrapper {
+  position: relative;
+
+  inset: auto;
+
+  width: 100%;
+
+  height: auto;
+
+  transform: none !important;
+
+  will-change: auto;
+
+  pointer-events: auto;
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   EXPERIENCE CARD
+========================================================= */
+
+.experience-card {
+  position: relative;
+
+  top: auto;
+
+  left: auto;
+
+  width: 100%;
+
+  min-height: 500px;
+
+  height: auto;
+
+  border-radius: 18px;
+
+  padding:
+    26px 28px;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 17, 31, 0.99),
+      rgba(6, 8, 16, 0.995)
+    );
+
+  border:
+    1px solid
+    rgba(
+      161,
+      140,
+      255,
+      0.28
+    );
+
+  box-shadow:
+    0 25px 65px
+      rgba(
+        0,
+        0,
+        0,
+        0.4
+      ),
+    inset 0 1px 0
+      rgba(
+        255,
+        255,
+        255,
+        0.07
+      );
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   CARD LIGHT
+========================================================= */
+
+.experience-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 78% 25%,
+      rgba(
+        124,
+        108,
+        255,
+        0.1
+      ),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 20% 85%,
+      rgba(
+        255,
+        158,
+        99,
+        0.045
+      ),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      135deg,
+      rgba(
+        255,
+        255,
+        255,
+        0.045
+      ),
+      transparent 28%,
+      transparent 70%,
+      rgba(
+        124,
+        108,
+        255,
+        0.035
+      )
+    );
+
+  z-index: -2;
+}
+
+
+/* =========================================================
+   TOP META
+========================================================= */
+
+.experience-top-meta {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding-bottom: 17px;
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.07
+    );
+
+  z-index: 10;
+}
+
+.experience-meta-left,
+.experience-meta-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.4
+    );
+}
+
+.experience-meta-right {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.3
+    );
+}
+
+.experience-index {
+  color: #9b8cff;
+}
+
+.experience-meta-dot {
+  width: 4px;
+  height: 4px;
+
+  flex: 0 0 4px;
+
+  border-radius: 50%;
+
+  background: #ffad7c;
+
+  box-shadow:
+    0 0 8px
+    rgba(
+      255,
+      173,
+      124,
+      0.7
+    );
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.experience-card-content {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    105px
+    minmax(
+      0,
+      1fr
+    );
+
+  column-gap: 20px;
+
+  width: calc(100% - 195px);
+
+  min-height: 285px;
+
+  align-items: start;
+
+  padding-top: 25px;
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+.experience-year-column {
+  position: relative;
+
+  align-self: start;
+}
+
+.experience-icon-box {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 18px;
+
+  border:
+    1px solid
+    rgba(
+      161,
+      140,
+      255,
+      0.25
+    );
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        161,
+        140,
+        255,
+        0.12
+      ),
+      rgba(
+        255,
+        158,
+        99,
+        0.05
+      )
+    );
+
+  color: #bdb5ff;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
+}
+
+.experience-year {
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size:
+    clamp(
+      20px,
+      3.2vw,
+      36px
+    );
+
+  line-height: 0.9;
+
+  font-weight: 800;
+
+  letter-spacing: -2.5px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #b9b4ff 45%,
+      #8d82ff 100%
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.experience-period {
+  margin-top: 10px;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.45
+    );
+}
+
+.experience-year-line {
+  width: 42px;
+
+  height: 1px;
+
+  margin-top: 15px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        141,
+        130,
+        255,
+        0.9
+      ),
+      transparent
+    );
+}
+
+.experience-stage-text {
+  display: block;
+
+  margin-top: 14px;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.25
+    );
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.experience-details {
+  max-width: 390px;
+
+  min-width: 0;
+}
+
+.experience-company {
+  display: block;
+
+  margin-bottom: 9px;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.42
+    );
+}
+
+.experience-details h3 {
+  margin:
+    0 0 11px;
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size:
+    clamp(
+      22px,
+      2vw,
+      31px
+    );
+
+  line-height: 1.08;
+
+  font-weight: 750;
+
+  letter-spacing: -1.3px;
+
+  color: #ffffff;
+}
+
+.experience-details p {
+  max-width: 365px;
+
+  margin: 0;
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.54
+    );
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.experience-skills {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-top: 17px;
+}
+
+.experience-skills span {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 24px;
+
+  padding:
+    0 9px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.12
+    );
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.025
+    );
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.4px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.6
+    );
+}
+
+
+/* =========================================================
+   DETAIL FOOTER
+========================================================= */
+
+.experience-detail-footer {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 18px;
+
+  margin-top: 25px;
+
+  padding-top: 17px;
+
+  border-top:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.07
+    );
+}
+
+.experience-detail-footer div {
+  min-width: 0;
+}
+
+.experience-detail-footer span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 1.5px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.28
+    );
+}
+
+.experience-detail-footer strong {
+  display: block;
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size: 9px;
+
+  line-height: 1.3;
+
+  font-weight: 500;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.62
+    );
+}
+
+
+/* =========================================================
+   RIGHT SIDE PANEL
+========================================================= */
+
+.experience-side-panel {
+  position: absolute;
+
+  top: 83px;
+
+  right: 27px;
+
+  width: 170px;
+
+  height: 285px;
+
+  padding:
+    17px 17px;
+
+  border-left:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(
+        255,
+        255,
+        255,
+        0.025
+      ),
+      transparent
+    );
+
+  z-index: 8;
+}
+
+.experience-side-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 9px;
+
+  letter-spacing: 1.5px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.38
+    );
+}
+
+.experience-side-line {
+  position: relative;
+
+  width: 100%;
+
+  height: 1px;
+
+  margin:
+    15px 0 16px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+}
+
+.experience-side-line span {
+  display: block;
+
+  width: 40%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8d82ff,
+      #ffb27d
+    );
+}
+
+.experience-side-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  margin-bottom: 12px;
+
+  border:
+    1px solid
+    rgba(
+      141,
+      130,
+      255,
+      0.2
+    );
+
+  border-radius: 10px;
+
+  background:
+    rgba(
+      141,
+      130,
+      255,
+      0.06
+    );
+
+  color: #a69cff;
+}
+
+.experience-side-label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 2px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.35
+    );
+}
+
+.experience-side-panel h4 {
+  margin: 0;
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.25;
+
+  font-weight: 650;
+
+  letter-spacing: -0.4px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.9
+    );
+}
+
+.experience-side-tech {
+  margin-top: 16px;
+}
+
+.experience-tech-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    7px 0;
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.045
+    );
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.48
+    );
+}
+
+.experience-tech-index {
+  color:
+    rgba(
+      141,
+      130,
+      255,
+      0.75
+    );
+}
+
+.experience-tech-arrow {
+  margin-left: auto;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.2
+    );
+}
+
+.experience-side-footer {
+  position: absolute;
+
+  left: 17px;
+
+  right: 17px;
+
+  bottom: 14px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 6px;
+
+  letter-spacing: 1.5px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.25
+    );
+}
+
+
+/* =========================================================
+   MINI STATS
+========================================================= */
+
+.experience-stats {
+  position: absolute;
+
+  left: 28px;
+
+  right: 225px;
+
+  bottom: 25px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 8px;
+
+  z-index: 7;
+}
+
+.experience-stat {
+  min-height: 50px;
+
+  padding:
+    10px 12px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.07
+    );
+
+  border-radius: 9px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.018
+    );
+}
+
+.experience-stat span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 6px;
+
+  letter-spacing: 1.5px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.28
+    );
+}
+
+.experience-stat strong {
+  display: block;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 500;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.62
+    );
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.experience-card-grid {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(
+        255,
+        255,
+        255,
+        0.018
+      ) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(
+        255,
+        255,
+        255,
+        0.018
+      ) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    42px 42px;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 40%,
+      black 72%,
+      transparent 100%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 40%,
+      black 72%,
+      transparent 100%
+    );
+
+  opacity: 0.6;
+
+  z-index: -1;
+}
+
+
+/* =========================================================
+   WATERMARK
+========================================================= */
+
+.experience-watermark {
+  position: absolute;
+
+  right: 2%;
+
+  top: 49%;
+
+  transform:
+    translateY(-50%);
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size:
+    clamp(
+      150px,
+      18vw,
+      300px
+    );
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: -15px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.018
+    );
+
+  user-select: none;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   EXPERIENCE IMAGE
+========================================================= */
+
+.experience-page .contact-image-area {
+  width: min(100% - 48px, 1200px);
+
+  min-height: 270px;
+
+  margin: 15px auto 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  position: relative;
+
+  perspective: 1200px;
+
+  isolation: isolate;
+
+  touch-action: pan-y;
+
+  border: 0;
+
+  box-shadow: none;
+}
+
+.experience-page .contact-image-frame {
+  width: min(650px, 100%);
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transform-style: preserve-3d;
+
+  background: transparent;
+
+  box-shadow: none;
+}
+
+.experience-page .contact-image-glow {
+  position: absolute;
+
+  width: 420px;
+
+  height: 240px;
+
+  left: 40%;
+
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(
+        87,
+        77,
+        255,
+        0.13
+      ),
+      rgba(
+        67,
+        218,
+        255,
+        0.05
+      ),
+      transparent 72%
+    );
+
+  filter: blur(42px);
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+.experience-page .contact-sachin-image {
+  display: block;
+
+  width: min(620px, 100%);
+
+  height: auto;
+
+  object-fit: contain;
+
+  transform-style: preserve-3d;
+
+  user-select: none;
+
+  pointer-events: none;
+
+  transition:
+    transform 180ms ease-out,
+    filter 250ms ease;
+}
+
+html[data-theme="light"] .experience-page .contact-sachin-image {
+  width: min(680px, 100%);
+
+  filter: none;
+}
+
+
+/* =========================================================
+   TRANSPARENT CARD SURFACES
+========================================================= */
+
+.experience-heading,
+.experience-card,
+.experience-side-panel,
+.experience-stat {
+  background: transparent !important;
+}
+
+
+/* =========================================================
+   LIGHT THEME TRANSPARENT OVERRIDES
+========================================================= */
+
+html[data-theme="light"] .experience-heading,
+html[data-theme="light"] .experience-card,
+html[data-theme="light"] .experience-side-panel,
+html[data-theme="light"] .experience-stat {
+  background: transparent !important;
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .experience-page {
+    --navbar-height: 82px;
+
+    --sticky-top:
+      calc(
+        var(--navbar-height)
+        + 10px
+      );
+
+    padding-top: 125px;
+  }
+
+  .experience-container {
+    grid-template-columns: 1fr;
+
+    width:
+      calc(
+        100% - 36px
+      );
+
+    gap: 34px;
+  }
+
+  .experience-heading {
+    position: relative;
+
+    top: auto;
+
+    padding:
+      30px 26px;
+
+    width: 100%;
+  }
+
+  .experience-heading-cap {
+    margin-bottom: 24px;
+  }
+
+  .experience-heading h2 {
+    width: 100%;
+
+    max-width: none;
+
+    font-size:
+      clamp(
+        42px,
+        7vw,
+        62px
+      );
+
+    letter-spacing: -3px;
+  }
+
+  .experience-heading-right {
+    display: block;
+
+    width: 100%;
+
+    max-width: 420px;
+  }
+
+  .experience-card {
+    width: 100%;
+
+    height:
+      clamp(
+        500px,
+        65vh,
+        600px
+      );
+
+    padding: 25px;
+  }
+
+  .experience-card-content {
+    width:
+      calc(
+        100% - 195px
+      );
+
+    grid-template-columns:
+      95px
+      minmax(
+        0,
+        1fr
+      );
+
+    column-gap: 18px;
+  }
+
+  .experience-side-panel {
+    right: 20px;
+
+    width: 165px;
+  }
+
+  .experience-stats {
+    right: 215px;
+  }
+
+  .experience-watermark {
+    right: 3%;
+
+    font-size: 180px;
+  }
+
+  .experience-page .contact-image-area {
+    width:
+      calc(
+        100% - 36px
+      );
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .experience-page {
+    --navbar-height: 72px;
+
+    --sticky-top:
+      calc(
+        var(--navbar-height)
+        + 8px
+      );
+
+    padding-top: 105px;
+
+    padding-bottom: 28px;
+  }
+
+  .experience-container {
+    width:
+      calc(
+        100% - 24px
+      );
+
+    gap: 24px;
+  }
+
+  .experience-heading {
+    padding:
+      26px 20px 30px;
+
+    border-radius: 20px;
+  }
+
+  .experience-heading-cap {
+    min-height: 32px;
+
+    margin-bottom: 22px;
+
+    font-size: 8px;
+  }
+
+  .experience-heading h2 {
+    width: 100%;
+
+    max-width: none;
+
+    font-size:
+      clamp(
+        36px,
+        10vw,
+        44px
+      );
+
+    line-height: 0.96;
+
+    letter-spacing: -2px;
+  }
+
+  .experience-heading-right {
+    margin-top: 24px;
+
+    padding-top: 18px;
+  }
+
+  .experience-stage {
+    gap: 18px;
+  }
+
+  .experience-card {
+    width: 100%;
+
+    height:
+      calc(
+        100svh
+        - var(--sticky-top)
+        - 20px
+      );
+
+    min-height: 590px;
+
+    border-radius: 20px;
+
+    padding: 20px;
+  }
+
+  .experience-top-meta {
+    padding-bottom: 14px;
+  }
+
+  .experience-meta-right {
+    display: none;
+  }
+
+  .experience-card-content {
+    display: block;
+
+    width: 100%;
+
+    padding-top: 20px;
+  }
+
+  .experience-icon-box {
+    width: 44px;
+    height: 44px;
+
+    margin-bottom: 14px;
+  }
+
+  .experience-year {
+    font-size: 50px;
+
+    letter-spacing: -4px;
+  }
+
+  .experience-period {
+    margin-top: 10px;
+
+    font-size: 9px;
+  }
+
+  .experience-year-line {
+    margin-top: 12px;
+
+    margin-bottom: 20px;
+  }
+
+  .experience-stage-text {
+    display: none;
+  }
+
+  .experience-details {
+    max-width: 100%;
+  }
+
+  .experience-company {
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+  }
+
+  .experience-details h3 {
+    font-size: 25px;
+
+    letter-spacing: -1.2px;
+  }
+
+  .experience-details p {
+    font-size: 11px;
+
+    line-height: 1.55;
+
+    max-width: 94%;
+  }
+
+  .experience-skills {
+    gap: 5px;
+
+    margin-top: 14px;
+  }
+
+  .experience-skills span {
+    min-height: 22px;
+
+    padding: 0 8px;
+
+    font-size: 7px;
+  }
+
+  .experience-detail-footer {
+    gap: 12px;
+
+    margin-top: 18px;
+
+    padding-top: 13px;
+  }
+
+  .experience-detail-footer strong {
+    font-size: 8px;
+  }
+
+
+  /* =======================================================
+     SIDE PANEL
+  ======================================================= */
+
+  .experience-side-panel {
+    top: auto;
+
+    right: 20px;
+
+    bottom: 88px;
+
+    width: 135px;
+
+    height: 170px;
+
+    min-height: 0;
+
+    padding: 12px;
+
+    border-left: 0;
+
+    border-top:
+      1px solid
+      rgba(
+        255,
+        255,
+        255,
+        0.08
+      );
+  }
+
+  .experience-side-header {
+    font-size: 7px;
+  }
+
+  .experience-side-line {
+    margin:
+      9px 0 10px;
+  }
+
+  .experience-side-icon {
+    width: 28px;
+    height: 28px;
+
+    margin-bottom: 8px;
+  }
+
+  .experience-side-label {
+    font-size: 6px;
+  }
+
+  .experience-side-panel h4 {
+    font-size: 10px;
+  }
+
+  .experience-side-tech {
+    margin-top: 7px;
+  }
+
+  .experience-tech-row {
+    padding: 4px 0;
+
+    font-size: 6px;
+  }
+
+  .experience-side-footer {
+    display: none;
+  }
+
+
+  /* =======================================================
+     MINI STATS
+  ======================================================= */
+
+  .experience-stats {
+    left: 20px;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    gap: 5px;
+  }
+
+  .experience-stat {
+    min-height: 42px;
+
+    padding: 8px;
+  }
+
+  .experience-stat span {
+    font-size: 5px;
+
+    margin-bottom: 4px;
+  }
+
+  .experience-stat strong {
+    font-size: 7px;
+  }
+
+  .experience-watermark {
+    top: 38%;
+
+    right: 0;
+
+    font-size: 110px;
+
+    letter-spacing: -8px;
+  }
+
+
+  /* =======================================================
+     EXPERIENCE IMAGE
+  ======================================================= */
+
+  .experience-page .contact-image-area {
+    width:
+      calc(
+        100% - 24px
+      );
+
+    min-height: 210px;
+
+    margin-top: 24px;
+  }
+
+  .experience-page .contact-image-frame {
+    width: 100%;
+  }
+
+  .experience-page .contact-image-glow {
+    width: 280px;
+
+    height: 170px;
+
+    left: 50%;
+
+    filter: blur(30px);
+  }
+
+  .experience-page .contact-sachin-image {
+    width:
+      min(
+        100%,
+        430px
+      );
+  }
+
+  html[data-theme="light"] .experience-page .contact-sachin-image {
+    width:
+      min(
+        100%,
+        460px
+      );
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   Keeps PROFESSIONAL EXPERIENCE fully visible
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .experience-heading h2 {
+    font-size: 34px;
+
+    letter-spacing: -1.6px;
+
+    line-height: 0.98;
+  }
+}
+
+
+/* =========================================================
+   STICKY SAFETY
+========================================================= */
+
+.experience-page,
+.experience-container,
+.experience-stack,
+.experience-stage,
+.experience-card-wrapper {
+  overflow: visible;
+}

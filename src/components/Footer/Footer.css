@@ -1,0 +1,438 @@
+/* =========================================================
+   FOOTER
+========================================================= */
+ 
+.footer {
+  width: 100%;
+  position: relative;
+  background: transparent;
+  color: var(--heading);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+html[data-theme="light"] .footer {
+  color: var(--heading);
+}
+
+html[data-theme="light"] .footer-tech-card-inner {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.94),
+      rgba(239, 244, 255, 0.9)
+    );
+  border-color: rgba(91, 77, 232, 0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 22px rgba(91, 77, 232, 0.06);
+}
+
+html[data-theme="light"] .footer-tech-label {
+  color: #000000;
+  text-shadow: none;
+}
+
+html[data-theme="light"] .footer-tech-card:hover .footer-tech-label {
+  color: #000000;
+  text-shadow: 0 0 15px rgba(91, 77, 232, 0.16);
+}
+
+html[data-theme="light"] .footer-tech-card:nth-child(7) .footer-tech-icon,
+html[data-theme="light"] .footer-tech-card:nth-child(15) .footer-tech-icon {
+  color: #000000 !important;
+  filter: none;
+}
+ 
+ 
+/* =========================================================
+   MARQUEE
+========================================================= */
+ 
+.footer-marquee {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  position: relative;
+}
+ 
+ 
+/* =========================================================
+   MARQUEE TRACK
+========================================================= */
+ 
+.footer-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  padding: 0;
+  animation: footerMarquee 64s linear infinite;
+  animation-play-state: running;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  contain: layout paint;
+  will-change: transform;
+}
+ 
+ 
+/* =========================================================
+   TECHNOLOGY CARD
+========================================================= */
+ 
+.footer-tech-card {
+  position: relative;
+  min-width: 190px;
+  height: 60px;
+  padding: 2px;
+  border-radius: 19px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 8px;
+  background: #111116;
+}
+ 
+ 
+/* =========================================================
+   ANIMATED MULTI-COLOR BORDER
+========================================================= */
+ 
+.footer-tech-border {
+  position: absolute;
+  inset: -70px;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      from 0deg,
+      #6d5dfc,
+      #a855f7,
+      #ec4899,
+      #f59e0b,
+      #6366f1,
+      #00e5ff,
+      #6d5dfc
+    );
+  animation: none;
+  z-index: 0;
+}
+ 
+ 
+/* =========================================================
+   INNER CARD
+========================================================= */
+ 
+.footer-tech-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 6px;
+  border-radius: 17px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(23, 23, 29, 0.98),
+      rgba(10, 10, 16, 0.98)
+    );
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.04);
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.06),
+    0 0 22px
+      rgba(109, 93, 252, 0.06);
+  z-index: 1;
+  overflow: hidden;
+}
+ 
+ 
+/* =========================================================
+   TECHNOLOGY ICON
+========================================================= */
+ 
+.footer-tech-icon {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter:
+    drop-shadow(
+      0 0 7px
+      rgba(255, 255, 255, 0.12)
+    );
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+ 
+ 
+/* =========================================================
+   AWS WORDMARK
+========================================================= */
+ 
+/* =========================================================
+   TECHNOLOGY LABEL
+========================================================= */
+ 
+.footer-tech-label {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color:
+    rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+ 
+ 
+/* =========================================================
+   HOVER
+========================================================= */
+ 
+.footer-tech-card:hover .footer-tech-icon {
+  transform: scale(1.12);
+  filter:
+    drop-shadow(
+      0 0 12px
+      rgba(255, 255, 255, 0.35)
+    );
+}
+ 
+ 
+.footer-tech-card:hover .footer-tech-label {
+  color: var(--heading);
+  text-shadow:
+    0 0 15px
+    rgba(255, 255, 255, 0.18);
+}
+ 
+ 
+/* =========================================================
+   HOVER CARD
+========================================================= */
+ 
+.footer-tech-card:hover .footer-tech-card-inner {
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.08),
+ 
+    0 0 28px
+      rgba(109, 93, 252, 0.12);
+}
+ 
+ 
+/* =========================================================
+   BORDER ROTATION
+========================================================= */
+ 
+@keyframes footerBorderRotate {
+ 
+  0% {
+    transform: rotate(0deg);
+  }
+ 
+  100% {
+    transform: rotate(360deg);
+  }
+ 
+}
+ 
+ 
+/* =========================================================
+   MARQUEE ANIMATION
+========================================================= */
+ 
+@keyframes footerMarquee {
+ 
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+ 
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+ 
+}
+
+/* =========================================================
+   SUBTLE FOOTER TOP GLOW
+========================================================= */
+ 
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 650px;
+  height: 160px;
+  transform:
+    translateX(-50%);
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(109, 93, 252, 0.08),
+      transparent 70%
+    );
+  filter: blur(35px);
+  pointer-events: none;
+  z-index: -1;
+}
+ 
+ 
+/* =========================================================
+   TABLET
+========================================================= */
+ 
+@media (max-width: 900px) {
+ 
+  .footer {
+    padding-top: 40px;
+  }
+ 
+ 
+  .footer-marquee {
+    padding: 18px 0;
+  }
+ 
+ 
+  .footer-marquee-track {
+    animation-duration: 64s;
+  }
+ 
+ 
+  .footer-tech-card {
+    min-width: 170px;
+    height: 56px;
+    border-radius: 18px;
+    margin-right: 6px;
+  }
+ 
+ 
+  .footer-tech-card-inner {
+    border-radius: 16px;
+    padding: 0 6px;
+    gap: 7px;
+  }
+ 
+ 
+  .footer-tech-icon {
+    width: 23px;
+    height: 23px;
+  }
+ 
+ 
+  .footer-tech-label {
+    font-size: 14px;
+  }
+ 
+}
+ 
+ 
+/* =========================================================
+   MOBILE
+========================================================= */
+ 
+@media (max-width: 600px) {
+ 
+  .footer {
+    padding-top: 32px;
+  }
+ 
+ 
+  .footer-marquee {
+    padding: 16px 0;
+  }
+ 
+ 
+  .footer-marquee-track {
+    animation-duration: 64s;
+  }
+ 
+ 
+  .footer-tech-card {
+    min-width: 150px;
+    height: 52px;
+    border-radius: 17px;
+    padding: 2px;
+    margin-right: 6px;
+  }
+ 
+ 
+  .footer-tech-card-inner {
+    border-radius: 15px;
+    gap: 5px;
+    padding: 0 5px;
+  }
+ 
+ 
+  .footer-tech-icon {
+    width: 21px;
+    height: 21px;
+  }
+ 
+ 
+  .footer-tech-label {
+    font-size: 12px;
+    letter-spacing: -0.02em;
+  }
+ 
+}
+ 
+ 
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+ 
+@media (max-width: 380px) {
+ 
+  .footer-tech-card {
+    min-width: 138px;
+    height: 49px;
+    border-radius: 16px;
+    margin-right: 5px;
+  }
+ 
+ 
+  .footer-tech-card-inner {
+    padding: 0 4px;
+    gap: 5px;
+    border-radius: 14px;
+  }
+ 
+ 
+  .footer-tech-icon {
+    width: 19px;
+    height: 19px;
+  }
+ 
+ 
+  .footer-tech-label {
+    font-size: 11px;
+  }
+ 
+}
+ 
+ 
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+ 
+@media (prefers-reduced-motion: reduce) {
+ 
+  .footer-marquee-track,
+  .footer-tech-border {
+    animation: none;
+  }
+ 
+}
+ 

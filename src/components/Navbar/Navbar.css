@@ -1,0 +1,595 @@
+.navbar {
+  height: 72px;
+  padding: 0 7%;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 11, 22, 0.82),
+    rgba(7, 11, 22, 0.46)
+  );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+}
+
+html[data-theme="light"] .navbar {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(239, 244, 255, 0.74));
+  border-bottom: 1px solid rgba(124, 106, 245, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+ 
+ 
+/* =========================================================
+   LOGO
+========================================================= */
+ 
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+  background: transparent;
+  text-decoration: none;
+}
+ 
+.navbar-logo-image {
+  width: 58px;
+  height: 58px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: transparent;
+  box-shadow: none;
+  filter: none;
+}
+ 
+.navbar-logo span {
+  background: transparent;
+  background: linear-gradient(90deg, #000000, #4b5563 48%, #d97706);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+}
+
+html[data-theme="dark"] .navbar-logo span {
+  background: linear-gradient(90deg, #ffffff, #d9d1ff 48%, #ffb27d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+ 
+ 
+/* =========================================================
+   LOGO MARK
+========================================================= */
+ 
+.logo-mark {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #35d4c2;
+  font-size: 20px;
+  font-weight: 800;
+  border: 3px solid #238f8e;
+  border-radius: 5px;
+  transform: rotate(45deg);
+}
+ 
+.logo-mark::first-letter {
+  color: #35d4c2;
+}
+ 
+ 
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+ 
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto;
+}
+ 
+.desktop-nav button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--button-bg);
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: 30px;
+  overflow: hidden;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+html[data-theme="light"] .desktop-nav button {
+  color: #000000;
+}
+
+html[data-theme="dark"] .desktop-nav button {
+  color: #ffffff;
+}
+ 
+ 
+/* =========================================================
+   NAV TEXT
+========================================================= */
+ 
+.desktop-nav button {
+  z-index: 1;
+}
+ 
+ 
+/* =========================================================
+   HOVER
+========================================================= */
+ 
+.desktop-nav button:hover {
+  color: var(--heading);
+  background: rgba(161, 140, 255, 0.1);
+  box-shadow:
+    0 0 15px
+    rgba(161, 140, 255, 0.12),
+    0 0 12px rgba(255, 178, 125, 0.06);
+}
+ 
+ 
+/* =========================================================
+   ACTIVE BUTTON
+   SAME ANIMATED BORDER STYLE AS FOOTER
+========================================================= */
+ 
+.desktop-nav button.active {
+  color: var(--heading);
+  border: 2px solid transparent;
+  background:
+    linear-gradient(
+      145deg,
+      #17171d,
+      #101015
+    ) padding-box,
+    conic-gradient(
+      from 0deg,
+      #6d5dfc,
+      #a855f7,
+      #ec4899,
+      #f59e0b,
+      #6366f1,
+      #00e5ff,
+      #6d5dfc
+    ) border-box;
+  animation:
+    navbarActiveGlow 3s linear infinite;
+  box-shadow:
+    0 0 15px
+    rgba(109, 93, 252, 0.08);
+}
+
+html[data-theme="light"] .desktop-nav button.active {
+  color: #000000;
+  background:
+    linear-gradient(145deg, #ffffff, #eef2ff) padding-box,
+    conic-gradient(
+      from 0deg,
+      #6d5dfc,
+      #a855f7,
+      #ec4899,
+      #f59e0b,
+      #6366f1,
+      #00a8cc,
+      #6d5dfc
+    ) border-box;
+}
+
+html[data-theme="dark"] .desktop-nav button.active {
+  color: #ffffff;
+}
+ 
+ 
+/* =========================================================
+   ACTIVE BUTTON GLOW
+========================================================= */
+ 
+@keyframes navbarActiveGlow {
+  0% {
+    filter:
+      drop-shadow(
+        0 0 2px
+        rgba(109, 93, 252, 0.25)
+      );
+  }
+ 
+  33% {
+    filter:
+      drop-shadow(
+        0 0 4px
+        rgba(168, 85, 247, 0.30)
+      );
+  }
+ 
+  66% {
+    filter:
+      drop-shadow(
+        0 0 4px
+        rgba(236, 72, 153, 0.30)
+      );
+  }
+ 
+  100% {
+    filter:
+      drop-shadow(
+        0 0 2px
+        rgba(109, 93, 252, 0.25)
+      );
+  }
+}
+ 
+ 
+/* =========================================================
+   RIGHT ACTIONS
+========================================================= */
+ 
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+ 
+ 
+/* =========================================================
+   THEME
+========================================================= */
+ 
+.search-button,
+.theme-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+ 
+.search-button {
+  gap: 9px;
+  padding: 13px 17px;
+  color: #9ca8be;
+  border: 1px solid #283247;
+  border-radius: 30px;
+}
+ 
+.search-button span {
+  font-size: 15px;
+}
+ 
+.theme-button {
+  color: #ffc400;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  border: 1px solid rgba(255, 196, 0, 0.28);
+  border-radius: 50%;
+  background: var(--theme-button);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+html[data-theme="light"] .theme-button {
+  color: #d97706;
+}
+
+html[data-theme="dark"] .theme-button {
+  color: #ffc400;
+}
+
+.theme-button:hover {
+  background: rgba(255, 196, 0, 0.18);
+  box-shadow: 0 0 18px rgba(255, 196, 0, 0.16);
+  transform: translateY(-1px);
+}
+ 
+ 
+/* =========================================================
+   RESUME
+========================================================= */
+ 
+.resume-button {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 17px;
+  border: 1px solid rgba(247, 104, 10, 0.52);
+  border-radius: 35px;
+  background: linear-gradient(
+    135deg,
+    rgba(161, 140, 255, 0.13),
+    rgba(255, 178, 125, 0.1)
+  );
+  color: var(--heading);
+  font-size: 19px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.2s ease;
+}
+
+html[data-theme="light"] .resume-button {
+  color: #000000;
+  background: linear-gradient(
+    135deg,
+    rgba(91, 77, 232, 0.12),
+    rgba(217, 119, 6, 0.12)
+  );
+}
+
+html[data-theme="dark"] .resume-button {
+  color: #ffffff;
+}
+ 
+.resume-button:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(161, 140, 255, 0.24),
+    rgba(255, 178, 125, 0.18)
+  );
+
+  box-shadow:
+    0 0 18px rgba(161, 140, 255, 0.12),
+    0 0 15px rgba(255, 178, 125, 0.08);
+}
+ 
+ 
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+ 
+.mobile-menu-button {
+  display: none;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(161, 140, 255, 0.1);
+  border: 1px solid rgba(161, 140, 255, 0.35);
+  border-radius: 50%;
+  color: var(--heading);
+  cursor: pointer;
+}
+
+html[data-theme="light"] .mobile-menu-button {
+  color: #000000;
+}
+
+html[data-theme="dark"] .mobile-menu-button {
+  color: #ffffff;
+}
+ 
+ 
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+ 
+.mobile-nav {
+  display: none;
+}
+ 
+ 
+/* =========================================================
+   TABLET
+========================================================= */
+ 
+@media (max-width: 1300px) {
+ 
+  .navbar {
+    padding: 0 4%;
+  }
+ 
+  .desktop-nav {
+    gap: 8px;
+  }
+ 
+  .desktop-nav button {
+    font-size: 17px;
+ 
+    padding: 9px 13px;
+  }
+ 
+  .navbar-logo span {
+    font-size: 23px;
+  }
+}
+ 
+ 
+/* =========================================================
+   MOBILE
+========================================================= */
+ 
+@media (max-width: 1000px) {
+ 
+  .desktop-nav {
+    display: none;
+  }
+ 
+  .mobile-menu-button {
+    display: flex;
+  }
+}
+ 
+ 
+/* =========================================================
+   MOBILE 600px
+========================================================= */
+ 
+@media (max-width: 600px) {
+ 
+  .navbar {
+    height: 82px;
+ 
+    padding: 0 20px;
+  }
+ 
+  .navbar-logo {
+    gap: 12px;
+  }
+ 
+  .navbar-logo span {
+    font-size: 18px;
+  }
+ 
+  .navbar-logo-image {
+    width: 40px;
+    height: 40px;
+  }
+ 
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+ 
+    font-size: 14px;
+  }
+ 
+  .search-button,
+  .theme-button {
+    display: none;
+  }
+ 
+  .resume-button {
+    padding: 10px 14px;
+ 
+    font-size: 14px;
+  }
+ 
+ 
+  /* =======================================================
+     MOBILE NAV
+  ======================================================= */
+ 
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+    background: var(--surface-strong);
+    border-top: 1px solid rgba(161, 140, 255, 0.2);
+    position: absolute;
+    top: 82px;
+    left: 0;
+    right: 0;
+  }
+ 
+ 
+  /* =======================================================
+     MOBILE NAV ITEMS
+  ======================================================= */
+ 
+  .mobile-nav button,
+  .mobile-nav a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-soft);
+    font-size: 17px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition:
+      color 0.25s ease,
+      background 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+ 
+ 
+  /* =======================================================
+     MOBILE HOVER
+  ======================================================= */
+ 
+  .mobile-nav button:hover {
+    color: var(--heading);
+    background:
+      rgba(161, 140, 255, 0.08);
+    border-color:
+      rgba(161, 140, 255, 0.4);
+  }
+ 
+ 
+  /* =======================================================
+     MOBILE ACTIVE
+     SAME FOOTER STYLE
+  ======================================================= */
+ 
+  .mobile-nav button.active {
+    color: var(--heading);
+    border: 2px solid transparent;
+    background:
+      linear-gradient(
+        145deg,
+        #17171d,
+        #101015
+      ) padding-box,
+ 
+      conic-gradient(
+        from 0deg,
+        #6d5dfc,
+        #a855f7,
+        #ec4899,
+        #f59e0b,
+        #6366f1,
+        #00e5ff,
+        #6d5dfc
+      ) border-box;
+ 
+    animation:
+      navbarActiveGlow 3s linear infinite;
+    box-shadow:
+      0 0 15px
+      rgba(109, 93, 252, 0.08);
+  }
+
+  html[data-theme="light"] .mobile-nav button.active {
+    color: #000000;
+    background:
+      linear-gradient(145deg, #ffffff, #eef2ff) padding-box,
+      conic-gradient(
+        from 0deg,
+        #6d5dfc,
+        #a855f7,
+        #ec4899,
+        #f59e0b,
+        #6366f1,
+        #00a8cc,
+        #6d5dfc
+      ) border-box;
+  }
+
+  html[data-theme="dark"] .mobile-nav button.active {
+    color: #ffffff;
+  }
+}
