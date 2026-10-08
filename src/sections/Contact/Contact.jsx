@@ -53,37 +53,53 @@ function Contact() {
     setStatusMessage("");
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+ const handleSubmit = async (event) => {
+  event.preventDefault();
 
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setStatusMessage("PLEASE FILL IN ALL FIELDS.");
-      return;
+  if (
+    !formData.name.trim() ||
+    !formData.email.trim() ||
+    !formData.message.trim()
+  ) {
+    setStatusMessage("PLEASE FILL IN ALL FIELDS.");
+    return;
+  }
+
+  setIsSending(true);
+  setStatusMessage("");
+
+  try {
+    const result = await sendContactMessage({
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      message: formData.message.trim(),
+      subject: "Portfolio inquiry",
+    });
+
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+
+    if (result?.emailSent) {
+      setStatusMessage("MESSAGE SENT SUCCESSFULLY.");
+    } else {
+      setStatusMessage(
+        result?.emailError
+          ? `MESSAGE SAVED, BUT EMAIL NOTIFICATION FAILED: ${result.emailError}`
+          : "MESSAGE SAVED, BUT EMAIL NOTIFICATION FAILED."
+      );
     }
-
-    setIsSending(true);
-    setStatusMessage("");
-
-    try {
-      const result = await sendContactMessage({
-        name: formData.name.trim(),
-        email: formData.email.trim(),
-        message: formData.message.trim(),
-        subject: "Portfolio inquiry",
-      });
-
-      setFormData({ name: "", email: "", message: "" });
-      setStatusMessage(result?.emailSent
-        ? "MESSAGE SENT SUCCESSFULLY."
-        : "MESSAGE SAVED, BUT EMAIL NOTIFICATION FAILED.");
-    } catch (error) {
-      console.error("Contact submit failed:", error);
-      setStatusMessage(error.message || "MESSAGE COULD NOT BE SENT.");
-    } finally {
-      setIsSending(false);
-    }
-  };
-
+  } catch (error) {
+    console.error("Contact submit failed:", error);
+    setStatusMessage(
+      error.message || "MESSAGE COULD NOT BE SENT."
+    );
+  } finally {
+    setIsSending(false);
+  }
+};
   return (
     <section className="contact-page">
       <main className="contact-content">
